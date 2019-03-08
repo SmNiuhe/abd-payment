@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangxie.payment.repository.mapper.TPaymentBillMapper">
+  <resultMap id="BaseResultMap" type="com.fangxie.payment.pojo.entity.TPaymentBill">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="merchant_trade_no" jdbcType="VARCHAR" property="merchantTradeNo" />
+    <result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
+    <result column="total_amount" jdbcType="BIGINT" property="totalAmount" />
+    <result column="discountable_amount" jdbcType="BIGINT" property="discountableAmount" />
+    <result column="payment_status" jdbcType="INTEGER" property="paymentStatus" />
+    <result column="payment_mode" jdbcType="INTEGER" property="paymentMode" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="time_start" jdbcType="TIMESTAMP" property="timeStart" />
+    <result column="time_expire" jdbcType="TIMESTAMP" property="timeExpire" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="is_del" jdbcType="CHAR" property="isDel" />
+  </resultMap>
+</mapper>

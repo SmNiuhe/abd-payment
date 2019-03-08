@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>abd-parent</artifactId>
+        <groupId>com.fangxie</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../abd-parent/pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.fangxie</groupId>
+    <artifactId>abd-payment</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>abd-payment</name>
+    <description>Demo project for Spring Boot</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>abd-payment-common</module>
+        <module>abd-payment-server</module>
+        <module>abd-payment-server-api</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <abd-common.version>1.0-SNAPSHOT</abd-common.version>
+        <abd-payment-common.version>1.0-SNAPSHOT</abd-payment-common.version>
+        <mybatis-generator-maven-plugin.version>1.3.7</mybatis-generator-maven-plugin.version>
+        <mapper-generator.version>1.1.5</mapper-generator.version>
+        <mapper.version>4.1.5</mapper.version>
+        <lombok.version>1.18.6</lombok.version>
+        <mapper-spring-boot-starter.version>1.1.7</mapper-spring-boot-starter.version>
+        <weixin-java-pay.version>3.3.0</weixin-java-pay.version>
+        <disruptor.version>3.4.2</disruptor.version>
+
+        <!--alipay-->
+        <alipay-sdk-java.version>3.0.0</alipay-sdk-java.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <zxing-core.version>3.2.1</zxing-core.version>
+        <hamcrest-core.version>1.3</hamcrest-core.version>
+        <google-gson.version>2.8.5</google-gson.version>
+        <spring-cloud-starter-openfeign.version>1.4.6.RELEASE</spring-cloud-starter-openfeign.version>
+        <spring-boot-maven-plugin.version>1.5.9.RELEASE</spring-boot-maven-plugin.version>
+
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.fangxie</groupId>
+                <artifactId>abd-common</artifactId>
+                <version>${abd-common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fangxie</groupId>
+                <artifactId>abd-payment-common</artifactId>
+                <version>${abd-payment-common.version}</version>
+            </dependency>
+
+            <!--通用 mapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${mapper.version}</version>
+            </dependency>
+
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Log4j2 异步支持 -->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+            <!-- WxPay -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>${weixin-java-pay.version}</version>
+            </dependency>
+
+            <!--AliPay-->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${alipay-sdk-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${commons-configuration.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${google-gson.version}</version>
+            </dependency>
+            <!--AliPay-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-starter-openfeign.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
+                <!--<executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

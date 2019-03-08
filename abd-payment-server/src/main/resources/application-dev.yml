@@ -1,0 +1,88 @@
+server:
+  port: 8009
+  #配置undertow 作为服务器的参数
+  undertow:
+    # 设置IO线程数,它主要执行非阻塞的任务,他们会负责多个连接,默认设置每个cpu一个线程
+    io-threads: 4
+    # 阻塞任务线程池,当执行雷士servlet 请求阻塞 ,undertow 会从这个线程池中取线程,它的值决定系统负载
+    worker-threads: 20
+    #每块buffer 的空间大小,越小的空间被利用充分
+    buffer-size: 1024
+    #是否分配的直接内存
+    direct-buffers: true
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.fangxie.payment.pojo.entity
+  mapper-locations: mybatis/mapper/**/*.xml
+  type-handlers-package: com.fangxie.payment.common.handler
+
+# 通用mapper
+mapper:
+  mappers: com.fangxie.payment.common.base.BaseMapper
+  not-empty: false
+  identity: MYSQL
+
+
+spring:
+  application:
+    name: abd-payment
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Chongqing
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/abd?useUnicode=true&characterEncoding=utf-8&useOldAliasMetadataBehavior=true&useOldAliasMetadataBehavior=true&useSSL=false
+    username: root
+    password: SmNiuhe@163.com
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-return: false
+      test-on-borrow: false
+  redis:
+    host: 47.98.225.4
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 5000
+
+# 文件上传目录
+file:
+  directory:
+    baseDir: ${user.dir}/abd
+    temp: ${user.home}/abd/fileTempDir
+
+
+# httpclient
+httpclient:
+  connectTimeout: 20000
+  requestTimeout: 20000
+  socketTimeout: 30000
+  defaultMaxPerRoute: 100
+  maxTotalConnections: 300
+  defaultKeepAliveTimeMillis: 20000
+  closeIdleConnectionWaitTimeSecs: 30
+
+# logging
+logging:
+  config: classpath:logging/log4j2-dev.xml
+  level:
+    root: info
+    org.springframework.web: info
+    com.github.binarywang.demo.wx.pay: debug
+    com.github.binarywang.wxpay: debug
+    tk.mybaits: debug
