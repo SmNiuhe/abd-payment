@@ -477,3 +477,11 @@ https://certify.alipay.com/relativeChild.htm
 5. [其他已实现的微信支付接口的Javadoc](https://binarywang.github.io/weixin-java-pay-javadoc/com/github/binarywang/wxpay/service/WxPayService.html)
 6. 微信支付接口请求参数正确情况下，如果一直报签名不对，请尝试修改下商户API密钥。
 7. 微信支付退款或发红包请求时报“DerInputStream.getLength(): lengthTag=111, too big.”，请参考[此文](https://blog.csdn.net/oneniu/article/details/70154197)，或者[此文](
+
+
+## 二维码生成
+
+```
+abd-payment-server
+com.fangxie.payment.service.IAliPayServiceImplTest
+```
